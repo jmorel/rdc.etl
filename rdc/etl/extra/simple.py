@@ -16,7 +16,6 @@
 
 from rdc.etl.io import STDIN
 from rdc.etl.transform import Transform
-from rdc.etl.util import filter_html
 
 
 def _apply_filter(value, hash, filter):
@@ -60,10 +59,6 @@ class _SimpleItemTransformationDescriptor(object):
             return v
 
         return self.filter_multi(_filter)
-
-    def filter_html(self):
-        self.filters.append(filter_html)
-        return self
 
     def if_none(self, field=None):
         """
